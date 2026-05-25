@@ -10,6 +10,7 @@ public class App {
 		Manzana manzana1 = new Manzana();
 
 		/*
+		 
 		 * ¿Como imprimir en la consola el objeto referenciado por la variable manzana1?
 		 */
 		System.out.println("------- Imprimiendo manzana1 ------- ");
@@ -19,17 +20,39 @@ public class App {
 		// la variedad de la Manzana, me daría error porque yo no tengo un constructor
 		// que reciba un solo parametro
 		// System.out.println(manzana2);
-
+		Manzana manzana2 = Manzana.builder()
+		        .variedad("Golden")
+		        .build();
+		// El Patron Builder es patron factoria, es decir, creacional,
+		// que permite crear o instanciar objetos sin tener explicitamente su
+		// su constructor
 		/*
+		 //El Patron Builder NO fue inventado por lombok, pero lo ha mejorado bastante
 		 * ¿ commo comparar dos objeto Manzanapara saber si son iguales o no? vamos a
 		 * crear dosobjeto Manzana que sean de
+		 * el patron builder no fue inventado por lombok, pero lo ha mejorado bastante
+		 // El Patron Builder es patron factoria, es decir, creacional,
+         // que permite crear o instanciar objetos sin tener explicitamente su
+// su constructor
 		 */
 
-		Manzana manzana3 = new Manzana("reineta", new BigDecimal(2.0));
-		Manzana manzana4 = new Manzana("reineta", new BigDecimal(2.0));
+        //Manzana manzana3 = new Manzana("reineta", new BigDecimal(2.0));
+       Manzana manzana3 = Manzana.builder()
+			   .variedad("reineta")
+			   .precio(new BigDecimal(2.0))
+			   .build();
+		// Manzana manzana4 = new Manzana("reineta", new BigDecimal(2.0));
 
-		int x = 5;
-		int y = 5;
+       Manzana manzana4 = Manzana.builder()	
+    		   			   .variedad("reineta")			
+    		   			   .precio(new BigDecimal(2.0))
+    		   			   .build();
+      
+    				 
+    		   
+    		  
+    				 int x = 5;
+		         int y = 5;
 
 		// Si quiero comprobar si las variables x e y son iguales, podemos utilizar una
 		// sentencia de Java
