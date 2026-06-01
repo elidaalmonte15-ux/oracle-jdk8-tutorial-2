@@ -1,6 +1,7 @@
 package com.example;
 
 import java.math.BigDecimal;
+import java.util.Iterator;
 
 public class App {
 	public static void main(String[] args) {
@@ -62,15 +63,68 @@ public class App {
 		 * 6.0, 0.25, new BigDecimal("0.60")), new Manzana("Amarilla", "Dulce",
 		 * "Golden Delicious", 8.0, 0.3, new BigDecimal("0.55")) };
 		 */
-		Manzana[] manzanas = {
-				Manzana.builder().color("Roja").sabor("Dulce").variedad("Red Delicious").size(7.5).peso(0.2)
-						.precio(new BigDecimal("0.50")).build(),
-				Manzana.builder().color("Verde").sabor("Acida").variedad("Granny Smith").size(6.0).peso(0.25)
-						.precio(new BigDecimal("0.60")).build(),
-				Manzana.builder().color("Amarilla").sabor("Dulce").variedad("Golden Delicious").size(8.0).peso(0.3)
-						.precio(new BigDecimal("0.55")).build()
+		
+						Manzana[] manzanas = {
+								Manzana.builder()
+								.color("Roja")
+								.sabor("Dulce")
+								.variedad("Red Delicious")
+								.size(7.5)
+								.peso(0.2)
+								.precio(new BigDecimal("0.50"))
+								.build(),
+								Manzana.builder()
+								.color("Verde")
+								.sabor("Acida")
+								.variedad("Granny Smith")
+								.size(6.0)
+								.peso(0.25)
+								.precio(new BigDecimal("0.60"))
+								.build(),
+								Manzana.builder()
+								.color("Amarilla")
+								.sabor("Dulce")
+								.variedad("Golden Delicious")
+								.size(8.0)
+								.peso(0.3)
+								.precio(new BigDecimal("0.55"))
+								.build()
+								,
+								Manzana.builder()
+								.color("Roja")
+								.sabor("Dulce")
+								.variedad("Red Delicious")
+								.size(7.5)
+								.peso(0.2)
+								.precio(new BigDecimal("0.50"))
+								.build(),
+								Manzana.builder() 
+								.color("Verde")
+								.sabor("Acida")
+								.variedad("Granny Smith")
+								.size(6.0)
+								.peso(0.25)
+								.precio(new BigDecimal("0.60")) 
+								.build(),
+								Manzana.builder()
+								.color("Amarilla")
+								.sabor("Dulce")
+								.variedad("Golden Delicious")
+								.size(8.0)
+								.peso(0.3)
+								.precio(new BigDecimal("0.55")) 
+								.build()
 
-		};
+
+								,
+								Manzana.builder()
+								.color("Roja")
+								.sabor("Dulce")
+								.variedad("Red Delicious")
+								.size(7.5)
+								.peso(0.2)
+								.precio(new BigDecimal("0.50"))
+								.build()	};
 //Hasta el momento los arrays que hemos creado son de tamaño
 //fijo, es decir, no se pueden modificar una vez que han sido creados
 
@@ -186,10 +240,213 @@ public class App {
     * 
     * Sugerencia: Hacer un commit previamente a ponerse con la solucion
     * del ejercicio, para que puedas modificar el codigo sin que se 
-    * pierda el codigo del ejemplo original */  
+    * pierda el codigo del ejemplo original */ 
     
+    System.out.println("-------- Solucion al Ejercicio # 1 ----------");
+    long[] numerosEnteros = new long[100];
+
+    System.out.println("Array original de numeros enteros: ");
+
+    for (int i = 0; i <= numerosEnteros.length - 1; i++) {
+    System.out.println(numerosEnteros[i]);
+    }
+
+    System.out.println("Array resultante, generado aleatoriamente");
+
+    for (int i = 0; i <= numerosEnteros.length - 1; i++) {
+    numerosEnteros[i] = Math.round(Math.random() * 100 - 1);
+    }
+
+    for (int i = 0; i <= numerosEnteros.length - 1; i++) {
+    System.out.println(numerosEnteros[i]);
+    }
+               /* SENTENCIA FOR MEJORADA. 
+    * 
+    * Se recomienda su uso siempre que no haya que trabajar con el indice 
+    * o los indices de un array */
+
+    System.out.println("----- SENTENCIA FOR MEJORADA (Mal llamada forEach) ---------------");
+    
+    
+    /* Ejercicio # 2. 
+    * 
+    * Recorrer el array numerosEnteros y solamente mostrar aquellos elementos que son 
+    * de indice par 
+    * 
+    * ¿Cuando un valor es par? 
+    * 
+    * Cuando el resultado del residuo de la division por 2 es igual a cero.
+    * 
+    * El residuo de la division la da el operador %, o tambien mod en una calculadora */
+    System.out.println("----- Ejercicio 2 -----");
+
+	for (int i = 0; i <= numerosEnteros.length - 1; i++) {
+
+		if (i % 2 == 0) {
+			System.out.println("indice:" + i + ", numero " + numerosEnteros[i]);
+		}
+	} 
+    
+    /*Ejercicio 3, recorrer el array de numeros enteros y mostrar solamente los elementos impares*/
+	System.out.println("----- Ejercicio 3 -----");
+	
+	for (long n : numerosEnteros) {
+
+		if (n % 2 != 0) {
+			System.out.println(n);
+		}
+	}
+	/*
+	 * Ejercicio 4, recorrer el array de numeros enteros y mostrar solamente los que
+	 * sean de indice impar
+	 */
+	System.out.println("----- Ejercicio 4 -----");
+
+	for (int i = 0; i <= numerosEnteros.length - 1; i++) {
+
+		if (i % 2 != 0) {
+			System.out.println("indice:" + i + ", numero " + numerosEnteros[i]);
+		}
+	}
+	/*-------sentencia de asignacion compuesta------*/
+	/* Primero: En Java existen dos tipos de datos, los datos primitivos cuyo nombre es todo
+	* letras minusculas, como por ejemplo int, long, byte, short, boolean, double, float, y 
+	* po otra parte NO TIENEN propiedades ni metodos ¿Como lo sabemos? Porque le aplicamos
+	* el operador punto (.) a continuacion y no se muestra nada */
+	
+	int e = 28;
+	//e. // NO SE MUESTRA  NADA DESPUESDEL OPERADOR PUNTOPORQUE EL TIPO DE DATO 
+	/* Segundo: Existen los tipos de datos no primitivos, que son aquellos cuyo nombre
+	* comienza con mayuscula, como por ejemplo String, BigDecimal, Manzana, etc. 
+	* Estos tipos de datos no primitivos SI TIENEN propiedades y metodos */
+	
+	Integer e2 = 200;
+
+	/* Existe una excepcion y es que el tipo datos String no tiene primitivo */
+
+	
+	/* Existe una excepcion y es que el tipo datos String no tiene primitivo */
+
+	// Tamaño fijo
+	String[] nombres3 = {"Elida", "Jakelin", "Juan Carlos", "Miguel"};
+
+	// A continuacion array que no es de tamaño fijo
+	String[] nombres4 = new String[100];
+
+	// Ejemplo: Recorrer el array nombres3 y mostrar solamente los nombres que tengan 
+	// mas de 5 caracteres
+	
+	for (String nombre : nombres3) {
+		if (nombre.length() > 5) {
+			System.out.println(nombre);
+			
+			/* Tercero: Existen las sentencias de asignacion compuestas, que son aquellas que
+			* permiten modificar el valor de una variable utilizando un operador de asignacion
+			* compuesto, como por ejemplo +=, -=, *=, /=, %=, etc. */
+			
+			/* COMENTARIO MUY IMPORTANTE
+			* 
+			* Simpre que sea posible las variables se deben declarar de un tipo de datos primitivo,
+			* porque de esta manera el lenguaje no tiene que hacer ninguna conversion implicita o explicita.
+			* 
+			* El tipo de datos objeto, la contraparte del primitivo, realmente NO existe, el tipo objeto es 
+			* un envoltorio del tipo primitivo
+			* */
+			byte v1 = 20;
+			short v2 = 38;
+
+			// v2 = (short) (v2 + v1);
+
+			v2 += v1; // v2 = v2 + v1
+
+			/* Lo anterior es un ejemplo de la potencia de las sentencias de asignacion compuestas 
+			* 
+			* De no utilizar una sentencia de asignacion compuesta en el ejemplo anterior, tendriamos que 
+			* terminar haciendo un type casting (casteo en castelleno) que significa obligar a convertir a 
+			* un tipo de datos concreto, que debe evitarse en la medida de lo posible.
+			* 
+			* Concretamente en la operacion anterior, los operandos v1 y v2 se convierten al tipo int y el
+			* resultado se obtiene como un int tambien y no se puede almacenar en la variable v2 a no ser
+			* que se realice un casteo a tipo short
+			* 
+			* Todo lo anterior lo realiza la sentencia de asignacion compuesta */	
+			/* Conceptos de Contador y Acumulador, implementados a traves del uso 
+			* de las sentencias de asignacion compuestas 
+			* 
+			* A modo de ejemplo # 1: Vamos a recorrer el array de manzanas y calcular el
+			* peso promedio de todas las manzanas 
+			* 
+			* A modo de ejemplo # 2: Recorrer el array de manzanas y mostrar solamente
+			* las manzanas cuyo peso sea superior al promedio, de color verde, de
+			* tamaño (size) superior a 6, y de sabor dulce */	
+			// Contador para llevar la cuenta del total de mazanas a las cuales
+			// le hemos leido el peso, para luego poder calcular el promedio
+			int counter = 0; // contador de manzanas a las cuales se les ha leido el peso
+			// Acumulador para ir sumando el peso de cada manzana, para luego poder
+			// calcular el promedio
+			double acumuladorPeso = 0.0;//sumador del peso de la manzana
+			
+			//sentencia for clasica o mejorada ? Rta mejorada,porque no se pide nada
+			//respeto al indice del array de manzanas, 
+			/* Solucion al ejemplo # 2. Utilizacion del operador logico relacional &&
+			* que en otros lenguajes de programacion seria el operador AND y implica
+			* que tienen que ser verdaderas las condiciones a la izquierda y la derecha
+			* del operador para que la condicion completa, al evaluar la expresion
+			* sea verdadera.
+			* 
+			* Se le llama tambien al operador && de corto-circuito, porque la primera
+			* condicion que encuentre que es falsa ya no continua evaluando la restantes */
+			for (Manzana m : manzanas) {
+
+				// Incrementamos el contador en uno
+				++counter; // counter = counter + 1
+
+				// acumuladorPeso = acumuladorPeso + m.getPeso();
+				acumuladorPeso += m.getPeso();
+				}
+
+				// Fuera del bucle for se calcularia el promedio
+
+				double pesoPromedio = acumuladorPeso / counter; 
+
+				// Imprimir en la consola el peso promedio
+				System.out.println("El peso promedio es: " + pesoPromedio);
+				for (Manzana man : manzanas) {
+
+					if(man.getPeso() > pesoPromedio && 
+					man.getColor().equals("Verde") && 
+					man.getSize() > 5 &&
+					man.getSabor().equals("Dulce"))
+					System.out.println(man.toString());
+					
+					/* Demostracion de que el operador logico && es de corto-circuito */
+
+					BigDecimal precio = new BigDecimal(0.80);
+
+					System.out.println("Precio original: " + precio);
+
+					for (Manzana Man : manzanas) {
+
+					if(man.getPeso() > pesoPromedio && 
+					man.getColor().equals("Verde") && 
+					man.getSize() > 7 &&
+					man.getPrecio().equals(precio = new BigDecimal(2.00)) &&
+					man.getSabor().equals("Dulce"))
+					System.out.println(man.toString());
+					}
+
+					System.out.println("Precio modificado ???? " + precio);
+					}
+			
+			
+			}
+			
 	}
 	
+    	}
+	}
+    
 	
 	
-}
+	
+	
