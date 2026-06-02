@@ -489,23 +489,23 @@ public class App {
 	// para poder invocar el metodo infoDiaSemana, porque es un metodo de instancia
 	String infoDiaSemana(DiaSemana diaSemana) {
 
-		String resultado = null;
+	
 
 		if (diaSemana.equals(DiaSemana.LUNES))
-			resultado = "Primer dia de la semana, a trabajar";
+		 return	"Primer dia de la semana, a trabajar";
 		else if (diaSemana.equals(DiaSemana.MARTES))
-			resultado = "Hemos pasado el lunes";
+			return "Hemos pasado el lunes";
 		else if (diaSemana.equals(DiaSemana.MIERCOLES))
-			resultado = "Nos acercamos al fin de semana";
+			return "Nos acercamos al fin de semana";
 		else if (diaSemana.equals(DiaSemana.JUEVES))
-			resultado = "Es juernes, los nuevos viernes, a disfrutar!!!";
+			return "Es juernes, los nuevos viernes, a disfrutar!!!";
 		else if (diaSemana.equals(DiaSemana.VIERNES))
-			resultado = "Es viernes y el cuerpo lo sabe";
+			return "Es viernes y el cuerpo lo sabe";
 		else if (diaSemana.equals(DiaSemana.SABADO) || diaSemana.equals(DiaSemana.DOMINGO))
-			resultado = "Es fin de semana";
+			return "Es fin de semana";
 		else
-			resultado = "El dia recibido no existe";
+			return "El dia recibido no existe";
 
-		return resultado;
+		
 	}
 }
