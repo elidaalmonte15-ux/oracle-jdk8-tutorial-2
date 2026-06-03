@@ -481,8 +481,49 @@ public class App {
 		App = new App();
 
 		System.out.println(new App().infoDiaSemana(DiaSemana.VIERNES));
+		infoDiaSemana2(DiaSemana.VIERNES);
+		
+		/* OPERADOR TERNARIO 
+		* 
+		* Trabaja con tres operandos, por lo cual se le llama ternario, que quiere decir
+		* tres partes. Y en muchas ocasiones es la una alternativa posible cuando
+		* hay que evaluar uno o varias condiciones y devolver un resultado
+		* 
+		* En su forma simple de su sintaxis es sencillo, pero cuando se anida entonces
+		* es un poco mas complejo */
+		/* Sintaxis del Operador Ternario con un ejemplo sencillo */
+	
+		int j = 4;
+		int k = 5;
+	String result = null;
+	
+	/* El operador ternario evalua una expresion que tiene que dar como resultado 
+	* un valor logico, verdadero o falso. 
+	* Si la evaluacion de la expresion es verdadera se retorna lo que esta
+	* a continuacion del signo de interrogacion invertido, de lo contrario
+	* se retorna lo que esta a continuacion de los dos puntos */
+	
+	result = k > j ? 
+			"Si, k es mayor que j" : 
+			"No, k no es mayor que j";
 
+			System.out.println("Resultado del operador ternario para los valores de: "
+			+ "k = " + k + ", y j = " + j + ", es: " + result);
+			
+			/* Cuando la expresion logica que hay que evaluar es un poco compleja, se 
+			* permite utilizar parentesis, para dar claridad a la solucion, pero no
+			* es que sea necesario. */
+	
+			/* Ejercicio # 1 del Martes 2 de Junio 
+			* 
+			* Recorrer el array de manzanas y para las manzanas cuyo tamaño (size) este entre
+			* 5 y 7 incrementar su precio en un 10% y las que no disminuir su precio en un 3%,
+			* agregar a un nuevo array las manzanas cuyo precio ha sido incrementado en un 10%
+			* */
+	
 	}
+	
+	
 	// Metodo de instancia, es decir, sin el modificador static,
 	// que recibe un tipo enum y devuelve un String
 	// Se necesita una instancia (objeto) de la clase App
@@ -490,6 +531,7 @@ public class App {
 
 	String infoDiaSemana(DiaSemana diaSemana) {
 
+		
 		// Utilizando sentencia switch - case
 		// para evaluar el valor del parametro diaSemana y devolver un mensaje
 
@@ -513,4 +555,41 @@ public class App {
 		}
 
 	}
+	static void infoDiaSemana2(DiaSemana diaSemana) {
+
+
+		// Utilizando sentencia switch - case 
+		// para evaluar el valor del parametro diaSemana y devolver un mensaje
+
+		switch (diaSemana) {
+
+		case LUNES : 
+		System.out.println("Primer dia de la semana, a trabajar");
+		break;
+
+		case MARTES: 
+		System.out.println("Hemos pasado el lunes");
+		break;
+
+		case MIERCOLES:
+		System.out.println("Nos acercamos al fin de semana");
+		break;
+
+		case JUEVES:
+		System.out.println("Es juernes, los nuevos viernes, a disfrutar!!!");
+		break;
+
+		case VIERNES:
+		System.out.println("Es viernes y el cuerpo lo sabe");
+		break;
+
+		case SABADO:
+		case DOMINGO:
+		System.out.println("Es fin de semana");
+
+
+		default: 
+		System.out.println("El dia recibido no existe");
+		}	
+}
 }
