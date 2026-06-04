@@ -556,14 +556,43 @@ public class App {
 
 			}
 
-			// Imprimir el array de manzanas resultante
-			System.out.println("Array de manzanas resultante: ");
-
-			for (Manzana m : manzanas10PorCientoPrecioMayor)
-				if (m != null)
-					System.out.println(m);
 		}
+		// Imprimir el array de manzanas resultante
+		System.out.println("Array de manzanas resultante: ");
+
+		for (Manzana m : manzanas10PorCientoPrecioMayor)
+			if (m != null)
+				System.out.println(m);
+		
+		/* Sentencia while:
+		 * 
+		 *  Las sentencias for clasica y for mejorada se utilizan cuando se sabe,
+		 *  a priori, la cantidad de veces que se va a ejecutar un bloque de 
+		 *  instrucciones. 
+		 *  
+		 *   Mientras que la sentencia while se utiliza cuando no se sabe, a priori, 
+		 *   la cantidad de veces que se va a ejecutar un bloque de instrucciones y
+		 *   ademas, cuando no se requiere ejecutar el bloque de instrucciones ni 
+		 *   una sola vez aunque ya no se cumpla la condicion*/
+		
+		// Ejemplo sencillo para comprender la sintaxis de la sentencia while
+		int z = 10;
+		int counterr = 0;
+		while (z >= 0) {
+			System.out.println("Valor de la variable z es: " + z);
+			z--;
+		counterr++;
+			
+		}
+		System.out.println("El bloque correspondiente a la sentencia while" + 
+				", se ha ejecutado " + counterr + " veces");
+		System.out.println("El valor final de la variable z es: " + z);
+		
 	}
+		
+		
+	
+	
 
 	// Metodo de instancia, es decir, sin el modificador static,
 	// que recibe un tipo enum y devuelve un String
