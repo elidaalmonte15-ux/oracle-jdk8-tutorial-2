@@ -576,11 +576,11 @@ public class App {
 		 *   una sola vez aunque ya no se cumpla la condicion*/
 		
 		// Ejemplo sencillo para comprender la sintaxis de la sentencia while
-		int z = 10;
+		int z = -1;
 		int counterr = 0;
 		while (z >= 0) {
 			System.out.println("Valor de la variable z es: " + z);
-			z--;
+			z--;// z = z - 1
 		counterr++;
 			
 		}
