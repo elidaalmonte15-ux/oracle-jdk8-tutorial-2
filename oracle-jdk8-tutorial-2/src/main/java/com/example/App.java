@@ -6,676 +6,124 @@ import java.util.Iterator;
 public class App {
 	public static void main(String[] args) {
 
-		// El array es un identificador que hace referencia a una zona de memoria,
-		// a diferencia de una variable que hace referencia a una sola ubicacion
-		// en la memoria, y que puede contener elementos de un mismo tipo de datos
-		// A los elementos del array se pueden acceder utilizando un indice numerico,
-		// entero, entre corchetes
+		/*
+		 * Trabajo con arrays de dos dimensiones, tambien llamado matriz.
+		 * 
+		 * Cuando el array es de una sola dimension se le denomina vector.
+		 */
 
-		/* ¿Como se declara un array actualmente? */
+		/* ¿Como declarar un array de dos dimensiones (matriz) ? */
 
-		// por ejemplo, un array de String
-		// El identificador nombres es un array donde cada elemento del array
-		// es de tipo String
+		/*
+		 * A modo de ejemplo, vamos a crear un array bidimensional de 3 filas y 3
+		 * columnas con numeros enteros.
+		 * 
+		 * Posteriormente recorreremos dicha matriz para buscar la ocurrencia de un
+		 * numero y cuando se encuentre imprimir en la consola la fila y la columna
+		 * donde ha sido encontrado dicho numero
+		 */
 
-		// ¿Que ventajas no ofrece?
-		// Que en lugar de crear una variable por cada elemento ahora solo tenemos
-		// un nombre para todo el conjunto de los elementos y es mucho mas escalable
-		// porque podremos tratar 10, 20 o un millon de elementos de la misma forma
+		/*
+		 * No tiene que ver con los array de dos dimensiones , pero vale para recordar:
+		 * Que cuando se declara un array y en mismo momento se le asigna valores, se
+		 * obtiene un array de tamaño fijo
+		 */
 
-		// Si no existieran los array, entonces
-		String nombre1;
-		String nombre2;
-		;
-		;
-		String nombren;// donde n es el numero de elementos que queremos manejar
+		String[] nombres = { "Elida", "Gina" };
 
-		String[] nombres = { "Juan", "Maria", "Pedro", "Luisa", "Jorge", "Carla", "Diego", "Sofia", "Alberto", "Ana"
+		// nombres[2] = "Miguel";
+		int[][] matrizEnteros = {
+
+				{ 1, 2, 3, 10, 100, 200 }, { 4, 5, 6, 20 }, { 7, 8, 9 }, { 4, 5, 6, 20, 400 }, { 7, 8, 9, 30 }
 
 		};
 
-		// Hasta el momento los arrays que hemos creado son de tamaño
-		// fijo, es decir, no se pueden modificar una vez que han sido creados
-		System.out.println("array original de nombres: ");
-
-		System.out.println("Array original de nombres");
-		System.out.println(nombres[0]);
-		System.out.println(nombres[1]);
-		System.out.println(nombres[2]);
-
-		System.out.println("El array de nombres tiene " + nombres.length + " elementos");
-
-// Tamaño fijo implica que no se pueden agregar mas elementos al array, 
-// pero si se pueden modificar los elementos existentes
-// nombres[3] = "Marisol";
-
-		nombres[2] = "Marisol";
-
-		System.out.println("Array de nombres modificado");
-
-		System.out.println(nombres[2]);
-
-		int[] erraynumerosenteros = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-//array de 3 Manzana
 		/*
-		 * Manzana[] manzanas = { new Manzana("Roja", "Dulce", "Red Delicious", 7.5,
-		 * 0.2, new BigDecimal("0.50")), new Manzana("Verde", "Acida", "Granny Smith",
-		 * 6.0, 0.25, new BigDecimal("0.60")), new Manzana("Amarilla", "Dulce",
-		 * "Golden Delicious", 8.0, 0.3, new BigDecimal("0.55")) };
+		 * Ejemplo: Recorrer la matriz anterior para buscar la primera ocurrencia del
+		 * numero 5 y mostrar la fila y la columna en las cuales ha sido encontrado.
+		 * 
+		 * Para recorrer una matriz se utilizan sentecias for anidadas, una para las
+		 * filas y otra para las columnas
 		 */
 
-		Manzana[] manzanas = {
-				Manzana.builder().color("Roja").sabor("Dulce").variedad("Red Delicious").size(7.5).peso(0.2)
-						.precio(new BigDecimal("0.50")).build(),
-				Manzana.builder().color("Verde").sabor("Acida").variedad("Granny Smith").size(6.0).peso(0.25)
-						.precio(new BigDecimal("0.60")).build(),
-				Manzana.builder().color("Amarilla").sabor("Dulce").variedad("Golden Delicious").size(8.0).peso(0.3)
-						.precio(new BigDecimal("0.55")).build(),
-				Manzana.builder().color("Roja").sabor("Dulce").variedad("Red Delicious").size(7.5).peso(0.2)
-						.precio(new BigDecimal("0.50")).build(),
-				Manzana.builder().color("Verde").sabor("Acida").variedad("Granny Smith").size(6.0).peso(0.25)
-						.precio(new BigDecimal("0.60")).build(),
-				Manzana.builder().color("Amarilla").sabor("Dulce").variedad("Golden Delicious").size(8.0).peso(0.3)
-						.precio(new BigDecimal("0.55")).build()
-
-				, Manzana.builder().color("Roja").sabor("Dulce").variedad("Red Delicious").size(7.5).peso(0.2)
-						.precio(new BigDecimal("0.50")).build() };
-//Hasta el momento los arrays que hemos creado son de tamaño
-//fijo, es decir, no se pueden modificar una vez que han sido creados
+		// for (int fila = 0; fila <= 3 - 1; fila++ )
+		// for (int columna = 0; columna <= 3 - 1; columna++ ) {
+		//
+		// }
 
 		/*
-		 * Declarar arrays que sean modificables, es decir, que se le puedan agregar o
-		 * eliminar elementos o modificar los elementos existentes
+		 * El codigo anterior no es correcto y se ha comentado porque solamente serviria
+		 * para tratar una matriz cuadrada de 3 x 3, es decir 3 filas y 3 columnas.
+		 * 
+		 * Si ampliamos o disminuimos el numero de filas o de columnas ya el codigo no
+		 * vale para nada
 		 */
+		int totalFilas = matrizEnteros.length;
 
-		String[] nombres2 = new String[3];
+		System.out.println("Total de filas: " + totalFilas);
 
-//El array de nombres2 tiene 3 elementos, pero todos los elementos son null
-//porque no se les ha asignado un valor aun. Con la sentencia anterior 
-//se ha reservado espacio en la memoria para 3 elementos de tipo String.
-//No sera posible pasarse de la cantidad de elementos reservados para el array
-//que en el caso anterior es de 3.
+		// El numero a buscar , su primera ocurrencia en la fila y columna donde se
+		// encuentra
 
-		// Agregando elemento al array nombres2
+		int numeroABuscar = 5;
 
-		nombres2[0] = "Pepa";
-		nombres2[1] = "Jakelin";
-		nombres2[2] = "Marisol";
+		for (int fila = 0; fila <= totalFilas - 1; fila++)
+			for (int columna = 0; columna <= matrizEnteros[fila].length - 1; columna++) {
 
-		/*
-		 * SENTENCIAS DE CONTROL DE FLUJO. En general permiten modificar el flujo de
-		 * ejecucion de un programa en dependencia del cumplimiento de una o varias
-		 * condiciones, aqui estarian las sentencia condicionales if - else y switch -
-		 * case y switch - expression
-		 * 
-		 * Y por otra parte, pero como parte tambien de las sentencias de control flujo
-		 * estarian las que permiten ejecutar en bucle un conjunto de sentencias entre
-		 * las que estarian
-		 * 
-		 * 1- sentencia for clasica 2- sentencia for mejorada 3- sentencia while 4-
-		 * sentencia do - while
-		 * 
-		 * Por ultimo las sentencias break y continue
-		 */
-		/*
-		 * La sentencia for clasica, se utiliza cuando se conoce a priori la cantidad de
-		 * veces que se van ejecutar un conjunto de instrucciones.
-		 * 
-		 * Tambien se puede utilizar para recorrer los elementos de un array
-		 */
+				/*
+				 * El codigo siguiente ha sido sugerido por GitHub Copilot, un agente de IA,
+				 * pero soluciona el encontrar la primera ocurrencia del numero a buscar, porque
+				 * aunque ya haya encontrado el numero lo continua buscando, pero si el numero
+				 * se encontrase repetido en la misma fila tampoco lo encontraria por segunda
+				 * vez.
+				 * 
+				 * En resumen, es bastante deficiente el codigo sugerido inicialmente
+				 * 
+				 * SOLAMENTE serviria para encontrar la primera ocurrencia en cada fila
+				 */
 
-		/*
-		 * Para mostrar en la consola los elementos de un array, por ejemplo el array de
-		 * nombres
-		 */
+				if (matrizEnteros[fila][columna] == numeroABuscar) {
+					System.out.println("El numero " + numeroABuscar + " se ha encontrado en la fila " + fila
+							+ " y en la columna " + columna);
+					break;
 
-		System.out.println("Recorriendo el array" + " nombres con una sentencia for clasica");
-
-		for (int i = 0; i < nombres.length; i++) {
-			System.out.println(nombres[i]);
-
-		}
-		/* Si intentaramos mostrar por la consola los elemetos del array nombres */
-
-		System.out.println("Intentando imprimir los elementos del array nombres");
-		System.out.println(nombres);
-		/*
-		 * La sentencia anterior solamente mostro por la consola la direccion de memoria
-		 * de la zona donde estan almacenados los elementos del array pero los elementos
-		 * como tal no los ha mostrado.
-		 * 
-		 * Para mostrar los elementos del array se necesita una sentencia de control de
-		 * flujo, que en bucle recorra todos los elementos del array de nombres y podria
-		 * ser la sentencia for clasica, en primer lugar, y en segundo lugar la
-		 * sentencia for mejorada
-		 */
-
-		// Primero: Sentencia for clasica
-
-		System.out.println("Recorriendo/Iterando los elemento del array nombres con una sentencia for clasica");
-
-		for (int i = 0; i <= nombres.length - 1; i++) {
-			System.out.println(nombres[i]);
-		}
-		System.out.println("la sentencia for ha concluido");
-		/* operador de auto incremento(++) y de auto decremento(--) */
-		int ii = 0;
-		ii++;
-
-		/*
-		 * Para comprobar la diferencia entre las dos instrucciones anteriores se puede
-		 * utilizar una herramiento de linea de comandos llamado jshell y comprobaremos
-		 * que el operador de autoincremento cuando esta solo, es lo mismo que este al
-		 * principio que al final, que no es igual a cuando esta en una expresion
-		 */
-
-		/*
-		 * ejemplo de creacion de un array de numero fraccionario,tipo doble,que tienen
-		 * parte enteray parte fraccionaria,los valores del array se tienen que generar
-		 * de forma aleatoriay con numero entre 0 100. por lo tanto vamos a utilizarla
-		 * herramienta jshll para aberiguar como hacer que se generen los numero
-		 * aleatorio que generemos
-		 */
-
-		System.out.println("Array de numeros de tipo double, generado de forma aleatoria ");
-
-		double[] arrayDeDoubles = new double[20];
-
-		System.out.println("Array original, con los valores por defecto ");
-
-		for (int i = 0; i <= arrayDeDoubles.length - 1; i++) {
-			System.out.println(arrayDeDoubles[i]);
-		}
-
-		// Rellenando el array con valores generados aleatoriamente
-		for (int i = 0; i <= arrayDeDoubles.length - 1; i++) {
-			arrayDeDoubles[i] = Math.random() * 100 - 1;
-		}
-
-		// Mostrando el array resultante
-
-		for (int i = 0; i <= arrayDeDoubles.length - 1; i++) {
-
-			System.out.println(arrayDeDoubles[i]);
-		}
-		/*
-		 * Ejercicio # 1. Modificar el ejemplo anterior para que array sea de 100
-		 * numeros enteros generados aleatoriamente
-		 * 
-		 * Sugerencia: Hacer un commit previamente a ponerse con la solucion del
-		 * ejercicio, para que puedas modificar el codigo sin que se pierda el codigo
-		 * del ejemplo original
-		 */
-
-		System.out.println("-------- Solucion al Ejercicio # 1 ----------");
-		long[] numerosEnteros = new long[100];
-
-		System.out.println("Array original de numeros enteros: ");
-
-		for (int i = 0; i <= numerosEnteros.length - 1; i++) {
-			System.out.println(numerosEnteros[i]);
-		}
-
-		System.out.println("Array resultante, generado aleatoriamente");
-
-		for (int i = 0; i <= numerosEnteros.length - 1; i++) {
-			numerosEnteros[i] = Math.round(Math.random() * 100 - 1);
-		}
-
-		for (int i = 0; i <= numerosEnteros.length - 1; i++) {
-			System.out.println(numerosEnteros[i]);
-		}
-		/*
-		 * SENTENCIA FOR MEJORADA.
-		 * 
-		 * Se recomienda su uso siempre que no haya que trabajar con el indice o los
-		 * indices de un array
-		 */
-
-		System.out.println("----- SENTENCIA FOR MEJORADA (Mal llamada forEach) ---------------");
-
-		/*
-		 * Ejercicio # 2.
-		 * 
-		 * Recorrer el array numerosEnteros y solamente mostrar aquellos elementos que
-		 * son de indice par
-		 * 
-		 * ¿Cuando un valor es par?
-		 * 
-		 * Cuando el resultado del residuo de la division por 2 es igual a cero.
-		 * 
-		 * El residuo de la division la da el operador %, o tambien mod en una
-		 * calculadora
-		 */
-		System.out.println("----- Ejercicio 2 -----");
-
-		for (int i = 0; i <= numerosEnteros.length - 1; i++) {
-
-			if (i % 2 == 0) {
-				System.out.println("indice:" + i + ", numero " + numerosEnteros[i]);
+				}
 			}
-		}
-
 		/*
-		 * Ejercicio 3, recorrer el array de numeros enteros y mostrar solamente los
-		 * elementos impares
+		 * A continuacion, el codigo que realmente soluciona el planteamiento original,
+		 * es decir, de buscar la PRIMERA ocurrencia del valor buscado , el numero 5 en
+		 * este caso:
 		 */
-		System.out.println("----- Ejercicio 3 -----");
-
-		for (long n : numerosEnteros) {
-
-			if (n % 2 != 0) {
-				System.out.println(n);
-			}
-		}
-		/*
-		 * Ejercicio 4, recorrer el array de numeros enteros y mostrar solamente los que
-		 * sean de indice impar
-		 */
-		System.out.println("----- Ejercicio 4 -----");
-
-		for (int i = 0; i <= numerosEnteros.length - 1; i++) {
-
-			if (i % 2 != 0) {
-				System.out.println("indice:" + i + ", numero " + numerosEnteros[i]);
-			}
-		}
-		/*-------sentencia de asignacion compuesta------*/
-		/*
-		 * Primero: En Java existen dos tipos de datos, los datos primitivos cuyo nombre
-		 * es todo letras minusculas, como por ejemplo int, long, byte, short, boolean,
-		 * double, float, y po otra parte NO TIENEN propiedades ni metodos ¿Como lo
-		 * sabemos? Porque le aplicamos el operador punto (.) a continuacion y no se
-		 * muestra nada
-		 */
-
-		int e = 28;
-		// e. // NO SE MUESTRA NADA DESPUESDEL OPERADOR PUNTOPORQUE EL TIPO DE DATO
-		/*
-		 * Segundo: Existen los tipos de datos no primitivos, que son aquellos cuyo
-		 * nombre comienza con mayuscula, como por ejemplo String, BigDecimal, Manzana,
-		 * etc. Estos tipos de datos no primitivos SI TIENEN propiedades y metodos
-		 */
-
-		Integer e2 = 200;
-
-		/* Existe una excepcion y es que el tipo datos String no tiene primitivo */
-
-		/* Existe una excepcion y es que el tipo datos String no tiene primitivo */
-
-		// Tamaño fijo
-		String[] nombres3 = { "Elida", "Jakelin", "Juan Carlos", "Miguel" };
-
-		// A continuacion array que no es de tamaño fijo
-		String[] nombres4 = new String[100];
-
-		// Ejemplo: Recorrer el array nombres3 y mostrar solamente los nombres que
-		// tengan
-		// mas de 5 caracteres
-
-		for (String nombre : nombres3) {
-			if (nombre.length() > 5)
-				System.out.println(nombre);
-		}
-		/*
-		 * Tercero: Existen las sentencias de asignacion compuestas, que son aquellas
-		 * que permiten modificar el valor de una variable utilizando un operador de
-		 * asignacion compuesto, como por ejemplo +=, -=, *=, /=, %=, etc.
-		 */
-
-		/*
-		 * COMENTARIO MUY IMPORTANTE
-		 * 
-		 * Simpre que sea posible las variables se deben declarar de un tipo de datos
-		 * primitivo, porque de esta manera el lenguaje no tiene que hacer ninguna
-		 * conversion implicita o explicita.
-		 * 
-		 * El tipo de datos objeto, la contraparte del primitivo, realmente NO existe,
-		 * el tipo objeto es un envoltorio del tipo primitivo
-		 */
-		byte v1 = 20;
-		short v2 = 38;
-
-		// v2 = (short) (v2 + v1);
-
-		v2 += v1; // v2 = v2 + v1
-
-		/*
-		 * Lo anterior es un ejemplo de la potencia de las sentencias de asignacion
-		 * compuestas
-		 * 
-		 * De no utilizar una sentencia de asignacion compuesta en el ejemplo anterior,
-		 * tendriamos que terminar haciendo un type casting (casteo en castelleno) que
-		 * significa obligar a convertir a un tipo de datos concreto, que debe evitarse
-		 * en la medida de lo posible.
-		 * 
-		 * Concretamente en la operacion anterior, los operandos v1 y v2 se convierten
-		 * al tipo int y el resultado se obtiene como un int tambien y no se puede
-		 * almacenar en la variable v2 a no ser que se realice un casteo a tipo short
-		 * 
-		 * Todo lo anterior lo realiza la sentencia de asignacion compuesta
-		 */
-		/*
-		 * Conceptos de Contador y Acumulador, implementados a traves del uso de las
-		 * sentencias de asignacion compuestas
-		 * 
-		 * A modo de ejemplo # 1: Vamos a recorrer el array de manzanas y calcular el
-		 * peso promedio de todas las manzanas
-		 * 
-		 * A modo de ejemplo # 2: Recorrer el array de manzanas y mostrar solamente las
-		 * manzanas cuyo peso sea superior al promedio, de color verde, de tamaño (size)
-		 * superior a 6, y de sabor dulce
-		 */
-		// Contador para llevar la cuenta del total de mazanas a las cuales
-		// le hemos leido el peso, para luego poder calcular el promedio
-		int counter = 0; // contador de manzanas a las cuales se les ha leido el peso
-		// Acumulador para ir sumando el peso de cada manzana, para luego poder
-		// calcular el promedio
-		double acumuladorPeso = 0.0;// sumador del peso de la manzana
-
-		// sentencia for clasica o mejorada ? Rta mejorada,porque no se pide nada
-		// respeto al indice del array de manzanas,
-		/*
-		 * Solucion al ejemplo # 2. Utilizacion del operador logico relacional && que en
-		 * otros lenguajes de programacion seria el operador AND y implica que tienen
-		 * que ser verdaderas las condiciones a la izquierda y la derecha del operador
-		 * para que la condicion completa, al evaluar la expresion sea verdadera.
-		 * 
-		 * Se le llama tambien al operador && de corto-circuito, porque la primera
-		 * condicion que encuentre que es falsa ya no continua evaluando la restantes
-		 */
-		for (Manzana m : manzanas) {
-
-			// Incrementamos el contador en uno
-			++counter; // counter = counter + 1
-
-			// acumuladorPeso = acumuladorPeso + m.getPeso();
-			acumuladorPeso += m.getPeso();
-		}
-
-		// Fuera del bucle for se calcularia el promedio
-
-		double pesoPromedio = acumuladorPeso / counter;
-
-		// Imprimir en la consola el peso promedio
-		System.out.println("El peso promedio es: " + pesoPromedio);
-		for (Manzana man : manzanas) {
-
-			if (man.getPeso() > pesoPromedio && man.getColor().equals("Verde") && man.getSize() > 5
-					&& man.getSabor().equals("Dulce"))
-				System.out.println(man.toString());
-
-			/* Demostracion de que el operador logico && es de corto-circuito */
-
-			BigDecimal precio = new BigDecimal(0.80);
-
-			System.out.println("Precio original: " + precio);
-
-			if (man.getPeso() > pesoPromedio && man.getColor().equals("Verde") && man.getSize() > 7
-					&& man.getPrecio().equals(precio = new BigDecimal(2.00)) && man.getSabor().equals("Dulce"))
-				System.out.println(man.toString());
-			System.out.println("Precio modificado ???? " + precio);
-
-		}
-
-		/*
-		 * OPERADOR LOGICO OR (||). Este operador dará como resultado verdadero, si al
-		 * menos una de las condiciones que se evaluan en la expresion es verdadera.
-		 * 
-		 * A direncia del OPERADOR AND (&&), el operador OR no es de corto-circuito, es
-		 * decir, que si una expresion no se cumple siempre va a evaluar las siguientes
-		 */
-
-		// A continuacion, un ejemplo sencillo
-
-		boolean t1 = false;
-		boolean t2 = false;
-		boolean t3 = true;
-
-		if (t1 == false || t2 == false || t3 == true) {
-			System.out.println("La epresion es verdadera");
-		} else {
-			System.out.println("La exprsion es false");
-
-		}
-
-		/*
-		 * Ejercicio # 1 del Lunes 1 de Junio:
-		 * 
-		 * Respecto al array de manzanas, recorrerlo con una sentencia for mejorada y
-		 * mostrar por la consola las manzanas que incluyan en el nombre de la variedad
-		 * la palabra Delicious y, ademas, sean de color Rojo, o que tengan un precio
-		 * inferior o igual al precio promedio
-		 */
-
-		/*
-		 * SENTENCIA SWITCH CASE.
-		 * 
-		 * Es una variante de la sentencia if - else, preferible cuando con una sentenci
-		 * if - else hay que evaluar mas de 3 o 4 condiciones porque el codigo se hace
-		 * dificil de mantener y poco legible
-		 */
-
-		/*
-		 * Para ejemplicar, vamos a crear un enumerable con los dias de la semana y
-		 * mostrar un mensaje en dependencia del dia de la semana que se trate.
-		 * 
-		 * Se propone crear un metodo a nivel de la clase App que recibe un tipo enum y
-		 * devuelva un tipo String con el mensaje segun el dia de la semana en cuestion
-		 */
-
-		/*
-		 * Solucion:
-		 * 
-		 * Primero: con una sentencia if - else en el cuerpo del metodo
-		 * 
-		 * Segundo: con una sentencia switch - case en el cuerpo del metodo
-		 */
-
-		// Invocacion o llamada del metodo infoDiaSemana con parametro correspondiente
-		// al viernes
-
-		// Invocar el metodo infoDiaSemana, al cual le hemos quitado
-		// el modificador static
-		App App;
-		App = new App();
-
-		System.out.println(new App().infoDiaSemana(DiaSemana.VIERNES));
-		infoDiaSemana2(DiaSemana.VIERNES);
-
-		/*
-		 * OPERADOR TERNARIO
-		 * 
-		 * Trabaja con tres operandos, por lo cual se le llama ternario, que quiere
-		 * decir tres partes. Y en muchas ocasiones es la una alternativa posible cuando
-		 * hay que evaluar uno o varias condiciones y devolver un resultado
-		 * 
-		 * En su forma simple de su sintaxis es sencillo, pero cuando se anida entonces
-		 * es un poco mas complejo
-		 */
-		/* Sintaxis del Operador Ternario con un ejemplo sencillo */
-
-		int j = 4;
-		int k = 5;
-		String result = null;
-
-		/*
-		 * El operador ternario evalua una expresion que tiene que dar como resultado un
-		 * valor logico, verdadero o falso. Si la evaluacion de la expresion es
-		 * verdadera se retorna lo que esta a continuacion del signo de interrogacion
-		 * invertido, de lo contrario se retorna lo que esta a continuacion de los dos
-		 * puntos
-		 */
-
-		result = k > j ? "Si, k es mayor que j" : "No, k no es mayor que j";
-
-		System.out.println("Resultado del operador ternario para los valores de: " + "k = " + k + ", y j = " + j
-				+ ", es: " + result);
-
-		/*
-		 * Cuando la expresion logica que hay que evaluar es un poco compleja, se
-		 * permite utilizar parentesis, para dar claridad a la solucion, pero no es que
-		 * sea necesario.
-		 */
-
-		/*
-		 * Ejercicio # 1 del Martes 2 de Junio
-		 * 
-		 * Recorrer el array de manzanas y para las manzanas cuyo tamaño (size) este
-		 * entre 5 y 7 incrementar su precio en un 10% y las que no disminuir su precio
-		 * en un 3%, agregar a un nuevo array las manzanas cuyo precio ha sido
-		 * incrementado en un 10%
-		 */
-
-		// Nuevo array de manzanas que contendra las manzanas cuyo precio se ha
-		// incrementado
-		// en un 10%
-		Manzana[] manzanas10PorCientoPrecioMayor = new Manzana[20];
-
-		int indice = 0;
-
-		for (Manzana manzana : manzanas) {
-			// Utilizando un operador ternario
-			double actualSize = manzana.getSize();
-			double precioActual = manzana.getPrecio().doubleValue();
-
-			BigDecimal nuevoPrecio = (actualSize >= 5 && actualSize <= 7)
-					// incrementar el precio en un 10%
-					? new BigDecimal(precioActual * 1.1)
-					// Disminuir el precio en un 3%
-					: new BigDecimal(precioActual * 0.97);
-
-			// La manzana tiene que ser agregada el nuevo array, si su precio es
-			// inferior al nuevoPrecio
-
-			if (precioActual < nuevoPrecio.doubleValue()) {
-
-				// Actualizo la manzana con su nuevo precio
-				manzana.setPrecio(nuevoPrecio);
-				manzanas10PorCientoPrecioMayor[indice++] = manzana;
-
-			}
-
-		}
-		// Imprimir el array de manzanas resultante
-		System.out.println("Array de manzanas resultante: ");
-
-		for (Manzana m : manzanas10PorCientoPrecioMayor)
-			if (m != null)
-				System.out.println(m);
 		
-		/* Sentencia while:
-		 * 
-		 *  Las sentencias for clasica y for mejorada se utilizan cuando se sabe,
-		 *  a priori, la cantidad de veces que se va a ejecutar un bloque de 
-		 *  instrucciones. 
-		 *  
-		 *   Mientras que la sentencia while se utiliza cuando no se sabe, a priori, 
-		 *   la cantidad de veces que se va a ejecutar un bloque de instrucciones y
-		 *   ademas, cuando no se requiere ejecutar el bloque de instrucciones ni 
-		 *   una sola vez aunque ya no se cumpla la condicion*/
+		System.out.println("codigo que soluciona el problema original");
 		
-		// Ejemplo sencillo para comprender la sintaxis de la sentencia while
-		int z = -1;
-		int counterr = 0;
-		while (z >= 0) {
-			System.out.println("Valor de la variable z es: " + z);
-			z--;// z = z - 1
-		counterr++;
-			
-		}
-		System.out.println("El bloque correspondiente a la sentencia while" + 
-				", se ha ejecutado " + counterr + " veces");
-		System.out.println("El valor final de la variable z es: " + z);
-		
-		/* Sentencia do - while. 
+		bucleExterior:	for (int fila = 0; fila <= totalFilas - 1; fila++)
+			for (int columna = 0; columna <= matrizEnteros[fila].length - 1; columna++) {
+
+				
+				if (matrizEnteros[fila][columna] == numeroABuscar) {
+					System.out.println("El numero " + numeroABuscar + " se ha encontrado en la fila " + fila
+							+ " y en la columna " + columna);
+					break bucleExterior;
+					
+					
+				}
+			}
+	
+		/* Ejercicio # 1 del Viernes 5 de Junio.
 		* 
-		* La condicion se evalua al final, no al principio como
-		* en la sentencia while, por lo que si se necesita ejecutar
-		* el bloque de instrucciones que estan entre las llaves de
-		* apertura y cierre, una vez al menos, pues esta es la sentencia
-		* indicada */
+		* Recorrer la matriz y encotrar todas las ocurrencias del numero 5, es decir,
+		* tener en cuenta que pueda estar en la misma fila en mas de una columna */	
+
+		System.out.println("-----Solucion al ejercicio # 1 del viernes 5 de Junio-----");
 		
-		int zz = 20;
-
-		do {
-		System.out.println("No se cumple ya la condicion y "
-		+ "hemos entrado al bucle una vez, de todas formas ");
-		zz -= 5;
-		} while (zz < 10);
-
-	
-	
-	}
+		for (int fila = 0; fila <= totalFilas - 1; fila++)
+			for (int columna = 0; columna <= matrizEnteros[fila].length - 1; columna++) {
 		
-		
+				if (matrizEnteros[fila][columna] == numeroABuscar)
+					System.out.println("Numero encontrado en fila: " + fila + 
+							" y columna: " + columna);
+			}
 	
-	
-
-	// Metodo de instancia, es decir, sin el modificador static,
-	// que recibe un tipo enum y devuelve un String
-	// Se necesita una instancia (objeto) de la clase App
-	// para poder invocar el metodo infoDiaSemana, porque es un metodo de instancia
-
-	String infoDiaSemana(DiaSemana diaSemana) {
-
-		// Utilizando sentencia switch - case
-		// para evaluar el valor del parametro diaSemana y devolver un mensaje
-
-		switch (diaSemana) {
-		case LUNES:
-			return "Primer dia de la semana, a trabajar";
-		case MARTES:
-			return "Hemos pasado el lunes";
-		case MIERCOLES:
-			return "Nos acercamos al fin de semana";
-		case JUEVES:
-			return "Es juernes, los nuevos viernes, a disfrutar!!!";
-		case VIERNES:
-			return "Es viernes y el cuerpo lo sabe";
-		case SABADO:
-		case DOMINGO:
-			return "Es fin de semana";
-		default:
-			return "El dia recibido no existe";
-
-		}
-
-	}
-
-	static void infoDiaSemana2(DiaSemana diaSemana) {
-
-		// Utilizando sentencia switch - case
-		// para evaluar el valor del parametro diaSemana y devolver un mensaje
-
-		switch (diaSemana) {
-
-		case LUNES:
-			System.out.println("Primer dia de la semana, a trabajar");
-			break;
-
-		case MARTES:
-			System.out.println("Hemos pasado el lunes");
-			break;
-
-		case MIERCOLES:
-			System.out.println("Nos acercamos al fin de semana");
-			break;
-
-		case JUEVES:
-			System.out.println("Es juernes, los nuevos viernes, a disfrutar!!!");
-			break;
-
-		case VIERNES:
-			System.out.println("Es viernes y el cuerpo lo sabe");
-			break;
-
-		case SABADO:
-		case DOMINGO:
-			System.out.println("Es fin de semana");
-
-		default:
-			System.out.println("El dia recibido no existe");
-		}
 	}
 }
