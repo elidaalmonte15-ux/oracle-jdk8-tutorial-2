@@ -3,6 +3,8 @@ package com.example;
 import java.math.BigDecimal;
 import java.util.Iterator;
 
+
+
 public class App {
 	public static void main(String[] args) {
 
@@ -94,36 +96,109 @@ public class App {
 		 * es decir, de buscar la PRIMERA ocurrencia del valor buscado , el numero 5 en
 		 * este caso:
 		 */
-		
+
 		System.out.println("codigo que soluciona el problema original");
-		
-		bucleExterior:	for (int fila = 0; fila <= totalFilas - 1; fila++)
+
+		bucleExterior: for (int fila = 0; fila <= totalFilas - 1; fila++)
 			for (int columna = 0; columna <= matrizEnteros[fila].length - 1; columna++) {
 
-				
 				if (matrizEnteros[fila][columna] == numeroABuscar) {
 					System.out.println("El numero " + numeroABuscar + " se ha encontrado en la fila " + fila
 							+ " y en la columna " + columna);
 					break bucleExterior;
-					
-					
+
 				}
 			}
-	
-		/* Ejercicio # 1 del Viernes 5 de Junio.
-		* 
-		* Recorrer la matriz y encotrar todas las ocurrencias del numero 5, es decir,
-		* tener en cuenta que pueda estar en la misma fila en mas de una columna */	
+
+		/*
+		 * Ejercicio # 1 del Viernes 5 de Junio.
+		 * 
+		 * Recorrer la matriz y encotrar todas las ocurrencias del numero 5, es decir,
+		 * tener en cuenta que pueda estar en la misma fila en mas de una columna
+		 */
 
 		System.out.println("-----Solucion al ejercicio # 1 del viernes 5 de Junio-----");
-		
+
 		for (int fila = 0; fila <= totalFilas - 1; fila++)
 			for (int columna = 0; columna <= matrizEnteros[fila].length - 1; columna++) {
-		
+
 				if (matrizEnteros[fila][columna] == numeroABuscar)
-					System.out.println("Numero encontrado en fila: " + fila + 
-							" y columna: " + columna);
+					System.out.println("Numero encontrado en fila: " + fila + " y columna: " + columna);
 			}
-	
+		/*
+		 * Sentencia continue
+		 * 
+		 * A diferencia del break, no rompe el bucle sino que continua en la siguiente
+		 * iteracion
+		 * 
+		 * Tambien admite etiquetas,
+		 * 
+		 * A modo de ejemplo, recorrer la matriz de numeros enteros, pero utilizando
+		 * sentencias for mejoradas y cada vez que se encuentre un valor par, continuar
+		 * en la siguiente iteracion,
+		 * 
+		 * Si el valor encontrado no es par, elvar al cuadrado el numero y almacenarlo
+		 * en la mismo ubicacion
+		 * 
+		 * Mostrar el array resultante al final
+		 */
+
+		// Primero: Recorrer la matriz con dos sentencias for mejoradas
+
+		/*
+		 * Sentencia continue
+		 * 
+		 * A diferencia del break, no rompe el bucle sino que continua en la siguiente
+		 * iteracion
+		 * 
+		 * Tambien admite etiquetas,
+		 * 
+		 * A modo de ejemplo, recorrer la matriz de numeros enteros, pero utilizando
+		 * sentencias for mejoradas y cada vez que se encuentre un valor par, continuar
+		 * en la siguiente iteracion,
+		 * 
+		 * Si el valor encontrado no es par, elevar al cuadrado el numero y almacenarlo
+		 * en una nueva matriz de numeros enteros, es decir, una matriz de numeros
+		 * enteros al cuadrado.
+		 * 
+		 * Mostrar el array resultante al final
+		 */
+		System.out.println("-----Ejercicio con sentencia continue-----");
+
+		int[][] matrizEnterosAlCuadrado = new int[10][100];
+
+		// arraybidimencional donde se van a almacenar el cuadrado de los numeros
+		// recorrer matriz con for mejorado la matriz de numeros enteros
+		int i = -1; // indice para las filas
+		int j = 0; // indice para las columnas
+
+		// recorrer matriz con for mejorado la matriz de numeros enteros
+		for (int[] fila : matrizEnteros) {
+			i++;
+			j = 0;
+			// si el valor es par, continuar
+			for (int numero : fila) {
+				if (numero % 2 == 0)
+					continue;
+				// si el valor no es par, elevar al cuadrado
+				else {
+					// int numeroAlCuadrado = numero * numero;
+					numero *= numero;
+					// System.out.println("El numero es: " + numero);
+					System.out.println("El numero al cuadrado es: " + numero);
+
+					matrizEnterosAlCuadrado[i][j++] = numero;
+
+				}
+			}
+		}
+		// Matriz resultante con los cuadrados de los numeros impares
+
+		System.out.println("La matriz resultante con los cuadrados: ");
+		for (int[] fila : matrizEnterosAlCuadrado)
+			for (int valor : fila)
+				if (valor != 0)
+					System.out.println(valor);
 	}
+
 }
